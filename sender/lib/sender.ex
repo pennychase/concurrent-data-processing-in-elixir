@@ -3,8 +3,8 @@ defmodule Sender do
   Documentation for `Sender`.
   """
 
-  # To test supervisor
-  def send_email("konnichiwa@world.com" = email), do: raise "Oops, couldn't send enail to #{email}!"
+  # To test implementing retries in GenServer
+  def send_email("konnichiwa@world.com" = _email), do: :error
 
   def send_email(email) do
     Process.sleep(3000)
