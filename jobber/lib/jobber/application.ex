@@ -13,6 +13,7 @@ defmodule Jobber.Application do
       name: Jobber.JobRunner
     ]
     children = [
+      {Registry, keys: :unique, name: Jobber.JobRegistry},
       {DynamicSupervisor, job_runner_config}
     ]
     # See https://hexdocs.pm/elixir/Supervisor.html
