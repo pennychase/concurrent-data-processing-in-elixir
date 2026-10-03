@@ -9,4 +9,14 @@ defmodule Scraper do
     |> :timer.seconds()
     |> Process.sleep()
   end
+
+  def online?(_url) do
+    # Simulate checking if service is online
+
+    # Include time delay
+    work()
+
+    # Randomly select result - offline 33% of the time
+    Enum.random([false, true, true])
+  end
 end

@@ -9,6 +9,7 @@ defmodule Scraper.Application do
   def start(_type, _args) do
     children = [
       PageProducer,
+      OnlinePageProducerConsumer,
       PageConsumerSupervisor
     ]
 
@@ -17,4 +18,5 @@ defmodule Scraper.Application do
     opts = [strategy: :one_for_one, name: Scraper.Supervisor]
     Supervisor.start_link(children, opts)
   end
+
 end
