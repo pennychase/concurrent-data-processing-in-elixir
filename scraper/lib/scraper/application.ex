@@ -9,7 +9,8 @@ defmodule Scraper.Application do
   def start(_type, _args) do
     children = [
       PageProducer,
-      PageConsumer
+      Supervisor.child_spec(PageConsumer, id: :consumer_a),
+      Supervisor.child_spec(PageConsumer, id: :consumer_)
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
